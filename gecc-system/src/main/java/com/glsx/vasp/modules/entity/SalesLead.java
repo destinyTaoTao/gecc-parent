@@ -1,5 +1,6 @@
 package com.glsx.vasp.modules.entity;
 
+import com.glsx.vasp.base.BaseEntity;
 import com.glsx.vasp.system.entity.BaseSysUser;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
@@ -15,7 +16,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "d_sales_lead")
 @ApiModel("销售线索")
-public class SalesLead extends BaseSysUser implements Serializable {
+public class SalesLead extends BaseEntity {
+
+    private String sn;
 
     private String name;
 
@@ -26,5 +29,17 @@ public class SalesLead extends BaseSysUser implements Serializable {
      */
     @Column(name = "city_code")
     private String cityCode;
+
+    /**
+     * 旧车车型id
+     */
+    @Column(name = "old_carmodel_id")
+    private Long oldCarModelId;
+
+    /**
+     * 新车车型id
+     */
+    @Column(name = "new_carmodel_id")
+    private Long newCarModelId;
 
 }

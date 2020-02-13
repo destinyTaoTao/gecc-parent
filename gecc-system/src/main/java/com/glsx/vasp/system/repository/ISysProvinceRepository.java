@@ -5,5 +5,5 @@ import com.glsx.vasp.system.entity.SysProvince;
 
 import java.io.Serializable;
 
-public interface ISysProvinceDao extends BaseRepository<SysProvince, Long>, Serializable {
+public interface ISysProvinceRepository extends BaseRepository<SysProvince, Long>, Serializable {
 }

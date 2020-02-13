@@ -5,7 +5,7 @@ import com.glsx.vasp.modules.entity.Customer;
 
 import java.io.Serializable;
 
-public interface ICustomerDao extends BaseRepository<Customer, Long>, Serializable {
+public interface ICustomerRepository extends BaseRepository<Customer, Long>, Serializable {
 
     Customer findByPhone(String phone);
 

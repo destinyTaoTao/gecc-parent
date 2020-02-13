@@ -5,7 +5,7 @@ import com.glsx.vasp.system.entity.SysUser;
 
 import java.io.Serializable;
 
-public interface ISysUserDao extends BaseRepository<SysUser, Long>, Serializable {
+public interface ISysUserRepository extends BaseRepository<SysUser, Long>, Serializable {
 
     SysUser findByUsername(String username);
 

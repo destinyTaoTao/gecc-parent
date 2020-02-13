@@ -33,6 +33,7 @@ public class ShiroLoginFilter extends FormAuthenticationFilter {
                 return true;
             }
         }
+//        return true;
         return super.isAccessAllowed(request, response, mappedValue);
     }
 

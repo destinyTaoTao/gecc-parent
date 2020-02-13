@@ -5,5 +5,5 @@ import com.glsx.vasp.system.entity.SysCity;
 
 import java.io.Serializable;
 
-public interface IBaseCitiesDao extends BaseRepository<SysCity, Long>, Serializable {
+public interface IBaseCitiesRepository extends BaseRepository<SysCity, Long>, Serializable {
 }

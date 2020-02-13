@@ -1,8 +1,8 @@
 package com.glsx.vasp.admin.modules.user.service;
 
 import com.glsx.vasp.enums.SysConstants;
-import com.glsx.vasp.system.repository.ISysUserDao;
 import com.glsx.vasp.system.entity.SysUser;
+import com.glsx.vasp.system.repository.ISysUserRepository;
 import com.glsx.vasp.utils.StringUtils;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -23,17 +23,17 @@ import java.util.Date;
 public class UserService {
 
     @Resource
-    private ISysUserDao userDao;
+    private ISysUserRepository repository;
 
     @Autowired
     private HashedCredentialsMatcher hcm;
 
     public SysUser getById(Long id) {
-        return userDao.getOne(id);
+        return repository.getOne(id);
     }
 
     public SysUser findByUsername(String username) {
-        return userDao.findByUsername(username);
+        return repository.findByUsername(username);
     }
 
     public SysUser addUser(SysUser user) {
@@ -45,13 +45,13 @@ public class UserService {
 
         //add Salt to password
         //user.getCredentialsSalt
-        SimpleHash hash = new SimpleHash(hcm.getHashAlgorithmName(), password, null, hcm.getHashIterations());
+        SimpleHash hash = new SimpleHash(hcm.getHashAlgorithmName(), password, salt, hcm.getHashIterations());
         //重新赋值
         user.setSalt(salt);
         user.setPassword(hash.toString());
         user.setEnableStatus(SysConstants.EnableStatus.enable.getCode());
         user.setCreateTime(new Date());
-        userDao.save(user);
+        repository.save(user);
         return user;
     }
 

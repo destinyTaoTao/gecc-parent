@@ -5,5 +5,5 @@ import com.glsx.vasp.system.entity.SysArea;
 
 import java.io.Serializable;
 
-public interface IBaseAreasDao extends BaseRepository<SysArea, Long>, Serializable {
+public interface IBaseAreasRepository extends BaseRepository<SysArea, Long>, Serializable {
 }

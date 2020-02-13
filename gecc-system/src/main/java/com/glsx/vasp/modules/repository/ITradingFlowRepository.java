@@ -5,7 +5,7 @@ import com.glsx.vasp.modules.entity.TradingFlow;
 
 import java.io.Serializable;
 
-public interface ITradingFlowDao extends BaseRepository<TradingFlow, Long>, Serializable {
+public interface ITradingFlowRepository extends BaseRepository<TradingFlow, Long>, Serializable {
 
     TradingFlow findByFlowNo(String flowNo);
 
