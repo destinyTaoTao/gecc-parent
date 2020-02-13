@@ -4,6 +4,7 @@ package com.glsx.vasp.admin.modules;
 import com.glsx.vasp.admin.common.exception.ResultCodeEnum;
 import com.glsx.vasp.framework.exception.BusinessException;
 import com.glsx.vasp.framework.web.R;
+import com.glsx.vasp.system.entity.SysUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -12,10 +13,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotBlank;
@@ -80,6 +78,12 @@ public class LoginController extends AbstractController {
     public R index() {
         //登录成功，进入首页
         return R.ok();
+    }
+
+    @GetMapping(value = "/info")
+    public R info() {
+        SysUser user = getSessionUser();
+        return R.ok().data(user);
     }
 
 }

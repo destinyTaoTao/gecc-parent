@@ -28,6 +28,10 @@ public class UserService {
     @Autowired
     private HashedCredentialsMatcher hcm;
 
+    public SysUser getById(Long id) {
+        return userDao.getOne(id);
+    }
+
     public SysUser findByUsername(String username) {
         return userDao.findByUsername(username);
     }
