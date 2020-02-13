@@ -1,8 +1,8 @@
 package com.glsx.vasp.eshop.modules.user.service;
 
 import com.glsx.vasp.eshop.common.constant.Constants;
-import com.glsx.vasp.modules.repository.ICustomerDao;
 import com.glsx.vasp.modules.entity.Customer;
+import com.glsx.vasp.modules.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +20,10 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private ICustomerDao userDao;
+    private ICustomerRepository repository;
 
     public Customer getUserByPhone(String phone) {
-        return userDao.findByPhone(phone);
+        return repository.findByPhone(phone);
     }
 
     public Long saveOrUpdate(Customer u) {
@@ -32,25 +32,25 @@ public class UserService {
         u.setUpdateTime(now);
         u.setDelFlag(Constants.NOT_DEL);
         u.setEnableStatus(Constants.ENABLE_STATUS_CHECK);
-        userDao.save(u);
+        repository.save(u);
         return u.getId();
     }
 
     public void update(Customer u) {
         u.setUpdateTime(new Date());
-        userDao.save(u);
+        repository.save(u);
     }
 
     public Customer findByWxOpenId(String wxOpenId) {
-        return userDao.findByWxOpenId(wxOpenId);
+        return repository.findByWxOpenId(wxOpenId);
     }
 
     public Customer findByMiniOpenId(String miniOpenId) {
-        return userDao.findByMiniOpenId(miniOpenId);
+        return repository.findByMiniOpenId(miniOpenId);
     }
 
     public Customer findById(Long id) {
-        Optional<Customer> optional = userDao.findById(id);
+        Optional<Customer> optional = repository.findById(id);
         return optional.get();
     }
 

@@ -4,7 +4,7 @@ import com.glsx.vasp.eshop.common.constant.Constants;
 import com.glsx.vasp.framework.components.PropertiesUtils;
 import com.glsx.vasp.framework.components.RedisCacheUtils;
 import com.glsx.vasp.framework.service.RedisService;
-import com.glsx.vasp.system.repository.ICommonDao;
+import com.glsx.vasp.system.repository.ICommonRepository;
 import com.glsx.vasp.utils.SnowFlake;
 import com.glsx.vasp.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class CommonService {
 
     @Autowired
-    private ICommonDao commonDao;
+    private ICommonRepository repository;
 
     @Autowired
     private SmsService smsService;

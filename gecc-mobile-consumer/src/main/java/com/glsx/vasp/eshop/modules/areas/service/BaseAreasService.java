@@ -2,8 +2,8 @@ package com.glsx.vasp.eshop.modules.areas.service;
 
 import com.glsx.vasp.framework.components.RedisCacheUtils;
 import com.glsx.vasp.framework.constant.ConstantKeys;
-import com.glsx.vasp.system.repository.IBaseAreasDao;
 import com.glsx.vasp.system.entity.SysArea;
+import com.glsx.vasp.system.repository.IBaseAreasRepository;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -20,7 +20,7 @@ import java.util.Map;
 public class BaseAreasService {
 
     @Resource
-    private IBaseAreasDao areasDao;
+    private IBaseAreasRepository repository;
 
     @Autowired
     private RedisCacheUtils redisCacheUtil;
@@ -33,7 +33,7 @@ public class BaseAreasService {
         SysArea area = new SysArea();
         area.setCityCode(cityCode);
         Example<SysArea> example = Example.of(area);
-        if (CollectionUtils.isEmpty(list)) list = areasDao.findAll(example);
+        if (CollectionUtils.isEmpty(list)) list = repository.findAll(example);
         return list;
     }
 

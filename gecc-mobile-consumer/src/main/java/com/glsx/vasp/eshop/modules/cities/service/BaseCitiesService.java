@@ -2,8 +2,8 @@ package com.glsx.vasp.eshop.modules.cities.service;
 
 import com.glsx.vasp.framework.components.RedisCacheUtils;
 import com.glsx.vasp.framework.constant.ConstantKeys;
-import com.glsx.vasp.system.repository.IBaseCitiesDao;
 import com.glsx.vasp.system.entity.SysCity;
+import com.glsx.vasp.system.repository.IBaseCitiesRepository;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -20,7 +20,7 @@ import java.util.Map;
 public class BaseCitiesService {
 
     @Resource
-    private IBaseCitiesDao citiesDao;
+    private IBaseCitiesRepository repository;
 
     @Autowired
     private RedisCacheUtils redisCacheUtil;
@@ -33,7 +33,7 @@ public class BaseCitiesService {
         SysCity city = new SysCity();
         city.setProvinceCode(provinceCode);
         Example<SysCity> example = Example.of(city);
-        if (CollectionUtils.isEmpty(list)) list = citiesDao.findAll(example);
+        if (CollectionUtils.isEmpty(list)) list = repository.findAll(example);
         return list;
     }
 }

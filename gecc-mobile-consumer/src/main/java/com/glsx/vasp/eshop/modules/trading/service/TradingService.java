@@ -1,7 +1,7 @@
 package com.glsx.vasp.eshop.modules.trading.service;
 
-import com.glsx.vasp.modules.repository.ITradingFlowDao;
 import com.glsx.vasp.modules.entity.TradingFlow;
+import com.glsx.vasp.modules.repository.ITradingFlowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 public class TradingService {
 
     @Autowired
-    private ITradingFlowDao tradingFlowDao;
+    private ITradingFlowRepository repository;
 
     public void save(TradingFlow tradingFlow) {
-        tradingFlowDao.save(tradingFlow);
+        repository.save(tradingFlow);
     }
 
     public TradingFlow findByFlowNo(String flowNo) {
-        return tradingFlowDao.findByFlowNo(flowNo);
+        return repository.findByFlowNo(flowNo);
     }
 
 }

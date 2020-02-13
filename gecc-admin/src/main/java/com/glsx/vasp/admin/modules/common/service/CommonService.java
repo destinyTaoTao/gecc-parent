@@ -1,6 +1,6 @@
 package com.glsx.vasp.admin.modules.common.service;
 
-import com.glsx.vasp.system.repository.ICommonDao;
+import com.glsx.vasp.system.repository.ICommonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class CommonService {
 
     @Autowired
-    private ICommonDao commonDao;
+    private ICommonRepository commonDao;
 
 
 }
