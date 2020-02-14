@@ -22,26 +22,30 @@ import java.io.OutputStream;
 public class StoreController extends AbstractController {
 
     @GetMapping(value = "info")
-    public R info(){
+    public R info() {
         return R.ok().data(getSessionUser());
     }
 
     /**
+     * 生成的其实是客户换个车小程序二维码，二维码里面包含门店标识
+     *
      * @param request
      * @param response
      * @throws IOException
      */
     @GetMapping(value = "/generateQrCode")
-    public void generateStoreQrCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void generateQrCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // 取配置文件中客户换个车小程序appid
+        String appid = "";
         // 获取小程序服务实例
-        WxMaService wxMaService = WxMaConfiguration.getMaService("");
+        WxMaService wxMaService = WxMaConfiguration.getMaService(appid);
         // 获取小程序二维码生成实例
         WxMaQrcodeService wxMaQrcodeService = wxMaService.getQrcodeService();
         // 设置小程序二维码线条颜色为黑色
         WxMaCodeLineColor lineColor = new WxMaCodeLineColor("0", "0", "0");
         // 小程序二维码参数
         String scene = getSessionUser().getStoreCode();
-        // 初始化页面
+        // 初始化页面page/index/index
         String page = null;// ???
 
         // 生成二维码图片字节流
