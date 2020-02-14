@@ -8,6 +8,9 @@ import lombok.experimental.Accessors;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/**
+ * 合作商/商户
+ */
 @Accessors(chain = true)
 @Data
 @Entity
@@ -15,6 +18,7 @@ import javax.persistence.Table;
 @ApiModel("合作商")
 public class Partner extends BaseEntity {
 
+    private String code;
     private String name;
     private String contact;
     private String phone;

@@ -4,7 +4,7 @@ package com.glsx.vasp.store.modules;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import com.glsx.vasp.framework.web.R;
-import com.glsx.vasp.system.entity.SysUser;
+import com.glsx.vasp.modules.entity.StoreUser;
 import com.glsx.vasp.weixin.common.config.WxMaConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -30,10 +30,12 @@ public class LoginController extends AbstractController {
      * 登陆接口
      */
     @PostMapping(value = "/register", produces = "application/json")
-    public R login(@PathVariable String appid, @RequestBody Map<String, Object> params) {
+    public R login(@RequestBody Map<String, Object> params) {
         String js_code = (String) params.get("js_code");
         if (StringUtils.isBlank(js_code)) return R.error("empty jscode");
 
+        // 门店小程序的appid
+        String appid = "";
         final WxMaService wxService = WxMaConfiguration.getMaService(appid);
 
         try {
@@ -60,7 +62,7 @@ public class LoginController extends AbstractController {
 
     @GetMapping(value = "/info")
     public R info() {
-        SysUser user = getSessionUser();
+        StoreUser user = getSessionUser();
         return R.ok().data(user);
     }
 

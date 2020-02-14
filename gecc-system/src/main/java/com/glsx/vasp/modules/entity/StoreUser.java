@@ -8,6 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/**
+ * 门店用户
+ */
 @Accessors(chain = true)
 @Data
 @Entity

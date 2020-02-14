@@ -16,10 +16,25 @@ import javax.persistence.Table;
 @ApiModel("合作商-线索关系表")
 public class PartnerClue extends BaseEntity {
 
+    @Column(name = "clue_id")
+    private Long clueId;
+
+    /**
+     * 合作方id，后端系统 运营分配线索给合作商时候赋值
+     */
     @Column(name = "partner_id")
     private Long partnerId;
 
-    @Column(name = "clue_id")
-    private Long clueId;
+    /**
+     * 合作商/商户 用户id，合作商用户登录跟进的账号id
+     */
+    @Column(name = "partner_user_id")
+    private Long partnerUserId;
+
+    /**
+     * 合作商精准报价，合作商用户跟进线索的精准报价
+     */
+    @Column(name = "partner_quote_id")
+    private Long partnerQuoteId;
 
 }
