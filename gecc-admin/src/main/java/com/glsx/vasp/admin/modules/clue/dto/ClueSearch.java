@@ -1,9 +1,9 @@
-package com.glsx.vasp.admin.modules.saleslead.dto;
+package com.glsx.vasp.admin.modules.clue.dto;
 
 import lombok.Data;
 
 @Data
-public class SalesLeadSearch {
+public class ClueSearch {
 
     private String slSn;
 

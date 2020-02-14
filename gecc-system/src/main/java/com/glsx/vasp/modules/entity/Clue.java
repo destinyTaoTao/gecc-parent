@@ -1,7 +1,6 @@
 package com.glsx.vasp.modules.entity;
 
 import com.glsx.vasp.base.BaseEntity;
-import com.glsx.vasp.system.entity.BaseSysUser;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -9,14 +8,13 @@ import lombok.experimental.Accessors;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Accessors(chain = true)
 @Data
 @Entity
-@Table(name = "d_sales_lead")
+@Table(name = "d_clue")
 @ApiModel("销售线索")
-public class SalesLead extends BaseEntity {
+public class Clue extends BaseEntity {
 
     private String sn;
 
@@ -35,11 +33,5 @@ public class SalesLead extends BaseEntity {
      */
     @Column(name = "old_carmodel_id")
     private Long oldCarModelId;
-
-    /**
-     * 新车车型id
-     */
-    @Column(name = "new_carmodel_id")
-    private Long newCarModelId;
 
 }

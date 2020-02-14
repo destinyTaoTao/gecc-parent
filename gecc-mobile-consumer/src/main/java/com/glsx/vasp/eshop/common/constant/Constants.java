@@ -12,10 +12,12 @@ import com.glsx.vasp.constant.BasicConstants;
  */
 public final class Constants extends BasicConstants {
 
+    public final static String SERVER_NAME = "gecc_consumer";
+
     /**
      * 登录用户在SESSION中的KEY值
      */
-    public final static String SESSION_LOGIN_USER = "sys_current_user";
+    public final static String SESSION_LOGIN_USER = SERVER_NAME + "_current_user";
 
     /**
      * 短信验证码前缀key

@@ -1,10 +1,11 @@
-package com.glsx.vasp.admin.modules.saleslead.service;
+package com.glsx.vasp.admin.modules.clue.service;
 
 import cn.hutool.db.Page;
-import com.glsx.vasp.admin.modules.saleslead.dto.SalesLeadSearch;
-import com.glsx.vasp.admin.modules.saleslead.model.SalesLeadDetails;
-import com.glsx.vasp.admin.modules.saleslead.model.SalesLeadListModel;
-import com.glsx.vasp.modules.repository.ISalesLeadRepository;
+import com.glsx.vasp.admin.modules.clue.dto.ClueSearch;
+import com.glsx.vasp.admin.modules.clue.model.ClueDetails;
+import com.glsx.vasp.admin.modules.clue.model.ClueListModel;
+import com.glsx.vasp.modules.entity.Clue;
+import com.glsx.vasp.modules.repository.IClueRepository;
 import com.glsx.vasp.utils.ReflectUtils;
 import com.glsx.vasp.utils.StringUtils;
 import com.glsx.vasp.web.Pagination;
@@ -19,15 +20,15 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class SalesLeadService {
+public class ClueService {
 
     @Autowired
     private EntityManager entityManager;
 
     @Autowired
-    private ISalesLeadRepository repository;
+    private IClueRepository repository;
 
-    public Pagination<SalesLeadListModel> search(SalesLeadSearch search, Page page) throws Exception {
+    public Pagination<ClueListModel> search(ClueSearch search, Page page) throws Exception {
         StringBuffer sql = new StringBuffer();
         sql.append(" select o.id, ");
         sql.append("         o.user_id userId, ");
@@ -79,12 +80,14 @@ public class SalesLeadService {
 
         List list = query.getResultList();
 
-        List<SalesLeadListModel> modelList = ReflectUtils.castEntity(list, SalesLeadListModel.class);
+        List<ClueListModel> modelList = ReflectUtils.castEntity(list, ClueListModel.class);
         return new Pagination<>(total, modelList);
     }
 
 
-    public SalesLeadDetails getDetailsById(Long id) {
+    public ClueDetails getDetailsById(Long id) {
+        Clue clue = repository.getOne(id);
+
         return null;
     }
 

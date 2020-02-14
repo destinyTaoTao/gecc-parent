@@ -16,7 +16,7 @@
         <module>gecc-kafka-consumer</module>
 
         <module>gecc-weixin</module>
-        <module>gecc-mobile-merchant</module>
+        <module>gecc-mobile-partner</module>
         <module>gecc-mobile-consumer</module>
         <module>gecc-mobile-store</module>
     </modules>

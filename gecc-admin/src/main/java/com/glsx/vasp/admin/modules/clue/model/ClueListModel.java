@@ -1,10 +1,9 @@
-package com.glsx.vasp.admin.modules.saleslead.model;
+package com.glsx.vasp.admin.modules.clue.model;
 
-import com.alibaba.excel.metadata.BaseRowModel;
 import lombok.Data;
 
 @Data
-public class SalesLeadListExport extends BaseRowModel {
+public class ClueListModel {
 
     /**
      * 线索编号

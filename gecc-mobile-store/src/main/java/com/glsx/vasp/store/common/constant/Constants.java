@@ -1,4 +1,4 @@
-package com.glsx.vasp.admin.common.constant;
+package com.glsx.vasp.store.common.constant;
 
 import com.glsx.vasp.constant.BasicConstants;
 
@@ -12,11 +12,11 @@ import com.glsx.vasp.constant.BasicConstants;
  */
 public final class Constants extends BasicConstants {
 
-    public final static String SERVER_NAME = "gecc_admin";
+    public final static String SERVER_NAME = "gecc_store_";
 
     /**
      * 登录用户在SESSION中的KEY值
      */
-    public final static String SESSION_LOGIN_USER = SERVER_NAME + "_current_user";
+    public final static String SESSION_LOGIN_USER = SERVER_NAME + "current_user";
 
 }
