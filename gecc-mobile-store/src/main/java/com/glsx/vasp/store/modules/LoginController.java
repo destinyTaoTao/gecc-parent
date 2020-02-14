@@ -44,8 +44,12 @@ public class LoginController extends AbstractController {
             log.info(session.getOpenid());
 
             //增加自己的逻辑，关联业务相关数据
-            //todo openid入库
+            //todo openid入库，绑定到StoreUser
+
             //todo 设置session
+
+            //todo 设置门店code到StoreUser
+
             return R.ok().data(session);
         } catch (WxErrorException e) {
             log.error(e.getMessage(), e);

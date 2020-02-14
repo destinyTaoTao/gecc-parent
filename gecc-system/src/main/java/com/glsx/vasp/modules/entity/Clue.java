@@ -23,6 +23,12 @@ public class Clue extends BaseEntity {
     private Long  consumerId;
 
     /**
+     * 门店code，用户留档线索时关联
+     */
+    @Column(name = "store_code")
+    private String storeCode;
+
+    /**
      * 线索编号
      */
     private String sn;
