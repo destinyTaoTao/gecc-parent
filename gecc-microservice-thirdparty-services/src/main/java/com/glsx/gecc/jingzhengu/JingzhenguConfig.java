@@ -18,4 +18,7 @@ public class JingzhenguConfig {
     @Value("${jingzhengu.url}")
     private String url;
 
+    @Value("${jingzhengu.guzhi.url}")
+    private String guzhiUrl;
+
 }

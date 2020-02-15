@@ -1,9 +1,9 @@
-package com.glsx.gecc;//package com.hflw.vasp.admin;
+package com.glsx.gecc;
 
 import com.alibaba.fastjson.JSON;
 import com.glsx.gecc.che300.req.*;
 import com.glsx.gecc.che300.resp.*;
-import com.glsx.gecc.che300.service.IChe300Service;
+import com.glsx.gecc.che300.service.Che300Service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class Che300ApplicationTests {
 
     @Autowired
-    private IChe300Service che300Service;
+    private Che300Service che300Service;
 
     @Test
     public void getAllCity() throws Exception {

@@ -60,13 +60,7 @@ public class Clue extends BaseEntity {
     /**
      * 广联换车方案id
      */
-    @Column(name = "scheme_gecc_id")
-    private Long schemeGeccId;
-
-    /**
-     * 传统方案id
-     */
-    @Column(name = "scheme_tradition_id")
-    private Long schemeTraditionId;
+    @Column(name = "scheme_id")
+    private Long schemeId;
 
 }

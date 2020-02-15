@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Accessors(chain = true)
 @Data
@@ -17,11 +18,24 @@ import java.math.BigDecimal;
 @ApiModel("车源")
 public class CarSource extends BaseEntity {
 
-//    private String picUrl;
+    /**
+     * 入库时间
+     */
+    @Column(name = "storage_time")
+    private Date storageTime;
 
+    private String icon;
+
+    /**
+     * 车架号/车辆识别码
+     */
     private String vin;
 
-    private Integer year;
+    /**
+     * 出厂年份
+     */
+    @Column(name = "manufacturer_year")
+    private Integer manufacture_year;
 
     @Column(name = "brand_id")
     private Integer brandId;
@@ -34,8 +48,15 @@ public class CarSource extends BaseEntity {
 
     private String color;
 
-    private BigDecimal price;
+    @Column(name = "manufacturer_guided_price")
+    private BigDecimal manufacturerGuidedPrice;
 
+    @Column(name = "monthly_payment")
+    private BigDecimal monthlyPayment;
+
+    /**
+     * 车源城市code
+     */
     private String city;
 
 }

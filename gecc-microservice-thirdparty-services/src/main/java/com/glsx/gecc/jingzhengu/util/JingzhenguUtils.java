@@ -21,12 +21,31 @@ public class JingzhenguUtils {
     @Resource
     private JingzhenguConfig config;
 
+
+    /**
+     * 调用精真估-车型接口
+     */
+    public <T> T accessNvapiUrl(String subRoute, Object req, Class<T> clazz) throws ServiceException {
+        String url = config.getUrl() + subRoute;
+
+        return access(url, req, clazz);
+    }
+
+    /**
+     * 调用精真估-估值接口
+     */
+    public <T> T accessGuzhiUrl(String subRoute, Object req, Class<T> clazz) throws ServiceException {
+        String url = config.getGuzhiUrl() + subRoute;
+
+        return access(url, req, clazz);
+    }
+
     /**
      * 调用精真估
      */
-    public <T> T access(Object req, Class<T> clazz) throws ServiceException {
+    private <T> T access(String url, Object req, Class<T> clazz) throws ServiceException {
 
-        String callMethodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+        String callMethodName = Thread.currentThread().getStackTrace()[3].getMethodName();
 
         AbstractJingzhenguRequest paramReq = (AbstractJingzhenguRequest) req;
 
@@ -40,7 +59,7 @@ public class JingzhenguUtils {
         CommonJingzhenguRequest param = complementedRequestData(jsonBody);
 
         // 4. 网络请求,获取结果
-        return realCall(config.getUrl() + callMethodName, param, clazz);
+        return realCall(url + callMethodName + "?json=" + JSON.toJSONString(param), param, clazz);
     }
 
     /**

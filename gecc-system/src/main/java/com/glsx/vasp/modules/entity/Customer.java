@@ -32,13 +32,4 @@ public class Customer extends BaseSysUser implements Serializable {
     @Column(name = "mini_openid", length = 64)
     private String miniOpenId;
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "phone='" + phone + '\'' +
-                ", wxOpenId='" + wxOpenId + '\'' +
-                ", miniOpenId='" + miniOpenId + '\'' +
-                '}';
-    }
-
 }

@@ -1,9 +1,9 @@
-package com.glsx.gecc;//package com.hflw.vasp.admin;
+package com.glsx.gecc;
 
 import com.alibaba.fastjson.JSON;
 import com.glsx.gecc.jingzhengu.req.*;
 import com.glsx.gecc.jingzhengu.resp.*;
-import com.glsx.gecc.jingzhengu.service.IJingzhenguService;
+import com.glsx.gecc.jingzhengu.service.JingzhenguService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class JingzhenguApplicationTests {
 
     @Autowired
-    private IJingzhenguService jingzhenguService;
+    private JingzhenguService jingzhenguService;
 
     @Test
     public void getProvinceListInfo() throws Exception {

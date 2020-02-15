@@ -3,7 +3,7 @@ package com.glsx.gecc.che300.service.impl;
 import com.glsx.gecc.che300.Che300Config;
 import com.glsx.gecc.che300.req.*;
 import com.glsx.gecc.che300.resp.*;
-import com.glsx.gecc.che300.service.IChe300Service;
+import com.glsx.gecc.che300.service.Che300Service;
 import com.glsx.gecc.che300.util.Che300Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class Che300ServiceImpl implements IChe300Service {
+public class Che300ServiceImpl implements Che300Service {
 
     @Resource
     private Che300Utils utils;
