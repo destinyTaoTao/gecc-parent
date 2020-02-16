@@ -3,7 +3,6 @@ package com.glsx.gecc.jingzhengu.service.impl;
 import com.glsx.gecc.jingzhengu.req.*;
 import com.glsx.gecc.jingzhengu.resp.*;
 import com.glsx.gecc.jingzhengu.service.JingzhenguService;
-import com.glsx.gecc.jingzhengu.util.EncryptUtil;
 import com.glsx.gecc.jingzhengu.util.JingzhenguUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetProvinceListInfoResp resp = utils.accessNvapiUrl("provinceAndCity/",req, GetProvinceListInfoResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
-        String data = EncryptUtil.DES3Decrypt(EncryptUtil.BASE64Decrypt(resp.getBody()),"");
+        String data = utils.getDecryptData(resp.getBody());
 
         return resp;
     }
@@ -32,6 +31,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetProvCityListInfoResp resp = utils.accessNvapiUrl("provinceAndCity/",req, GetProvCityListInfoResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -40,6 +40,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetMakeByAllResp resp = utils.accessNvapiUrl("external/",req, GetMakeByAllResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -48,6 +49,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetSubModelByMakeIdResp resp = utils.accessNvapiUrl("external/",req, GetSubModelByMakeIdResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -56,6 +58,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetModelsResp resp = utils.accessNvapiUrl("external/",req, GetModelsResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -64,6 +67,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetStyleByModelIdResp resp = utils.accessNvapiUrl("external/",req, GetStyleByModelIdResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -72,6 +76,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetStylesResp resp = utils.accessNvapiUrl("external/",req, GetStylesResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -80,6 +85,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetStyleColorByStyleIdResp resp = utils.accessNvapiUrl("external/",req, GetStyleColorByStyleIdResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -88,6 +94,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         GetModifiedIdsResp resp = utils.accessNvapiUrl("external/",req, GetModifiedIdsResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -96,6 +103,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         EstimateInfoResp resp = utils.accessGuzhiUrl("estimate/",req, EstimateInfoResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -104,6 +112,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         ResidualRatioResp resp = utils.accessGuzhiUrl("estimate/",req, ResidualRatioResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -112,6 +121,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         EstimateFastResidualResp resp = utils.accessGuzhiUrl("estimate/",req, EstimateFastResidualResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 
@@ -120,6 +130,7 @@ public class JingzhenguServiceImpl implements JingzhenguService {
         PriceAnalysisResp resp = utils.accessGuzhiUrl("residualRatio/",req, PriceAnalysisResp.class);
         if (resp == null || resp.getErrorCode() != 0) return null;
 
+        String data = utils.getDecryptData(resp.getBody());
         return resp;
     }
 

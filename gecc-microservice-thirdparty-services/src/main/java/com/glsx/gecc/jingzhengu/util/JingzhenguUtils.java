@@ -108,6 +108,17 @@ public class JingzhenguUtils {
     }
 
     /**
+     * 解密返回数据
+     *
+     * @param encryptBody
+     * @return
+     */
+    public String getDecryptData(String encryptBody) {
+        String data = EncryptUtil.DES3Decrypt(EncryptUtil.BASE64Decrypt(encryptBody), config.getKey());
+        return data;
+    }
+
+    /**
      * 校验请求实体的通用属性,比如appkey属性及sign属性。
      * 也可以通过 instanceof,针对特定请求实体进行校验操作。
      */
